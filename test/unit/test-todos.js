@@ -21,7 +21,7 @@ describe('todos api', function() {
           expect(err).to.be.null;
           expect(res.body).to.be.have.property('count');
           expect(res.body).to.be.have.property('list');
-          expect(red.body.list).to.be.a('array');
+          expect(res.body.list).to.be.a('array');
 
           done();
         })
