@@ -1,4 +1,11 @@
 {
+   "globals": {
+      "it": true,
+      "describe": true,
+      "beforeEach": true
+    }, 
+    "expr"          : true,
+    "esnext"        : true,
     "asi"           : true,
     "camelcase"     : false,
     "bitwise"       : false,  

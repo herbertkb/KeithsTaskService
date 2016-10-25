@@ -9,13 +9,13 @@ module.exports = function(grunt) {
       js: {
         files: ['gruntfile.js', 'application.js', 'lib/**/*.js', 'test/**/*.js'],
         options: {
-          livereload: true
+          livereload: 40001
         }
       },
       html: {
         files: ['public/views/**', 'app/views/**'],
         options: {
-          livereload: true
+          livereload: 40002
         }
       }
     },
@@ -46,6 +46,7 @@ module.exports = function(grunt) {
       options: {},
       // environment variables - see https://github.com/jsoverson/grunt-env for more information
       local: {
+        NODE_PATH: '.',
         FH_USE_LOCAL_DB: true,
         FH_SERVICE_MAP: function() {
           /*
@@ -146,8 +147,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
 
   // Testing tasks
-  grunt.registerTask('test', ['jshint', 'shell:unit', 'shell:accept']);
-  grunt.registerTask('unit', ['jshint', 'shell:unit']);
+  grunt.registerTask('test', ['env:local', 'jshint', 'shell:unit', 'shell:accept']);
+  grunt.registerTask('unit', ['env:local', 'jshint', 'shell:unit']);
   grunt.registerTask('accept', ['env:local', 'shell:accept']);
 
   // Coverate tasks
